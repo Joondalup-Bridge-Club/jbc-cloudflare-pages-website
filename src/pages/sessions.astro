@@ -1,0 +1,54 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+import { hostSignups } from "../data/sessions";
+
+const sessions = (await getCollection("sessions"))
+  .map(({ data }) => data)
+  .sort((a, b) => a.order - b.order);
+---
+<SiteLayout title="Session times | Joondalup Bridge Club" description="Weekly session times, partner requirements and formats at Joondalup Bridge Club.">
+  <section class="page-hero">
+    <p class="eyebrow">Play at JBC</p>
+    <h1>Find a session</h1>
+    <p>Choose a session that suits your experience and the kind of game you enjoy. New and visiting players are welcome.</p>
+  </section>
+  <section class="section page-content">
+    <div class="notice-card"><strong>Coming without a partner?</strong><span>Hosted sessions guarantee a partner. On Wednesday evening, the supervised Starter Session is also open to players without a partner.</span></div>
+    <div class="section-heading"><div><p class="eyebrow">Every week</p><h2>Session times</h2></div><a class="text-link" href="/location/">Plan your visit <span aria-hidden="true">→</span></a></div>
+    <div class="session-list session-list-full">
+      {sessions.map((session) => (
+        <article class="session-card">
+          <div class="session-day">{session.day}</div>
+          <div class="session-main">
+            <h3>{session.title}</h3>
+            <p>{session.supervised ? "Supervised · no partner needed" : session.partner}</p>
+            {session.host && <p class="session-person">Host · {session.host}</p>}
+            {session.director && <p class="session-person">Director · {session.director}</p>}
+          </div>
+          <div class="session-time">{session.time}</div>
+          {session.registration && <a class="session-register" href={session.registration} target="_blank" rel="noreferrer">Register <span aria-hidden="true">↗</span></a>}
+        </article>
+      ))}
+    </div>
+
+    <div class="content-columns">
+      <article class="feature-card">
+        <p class="eyebrow">Which game?</p><h2>Session formats</h2>
+        <ul class="detail-list">
+          <li><strong>Standard</strong><span>About 3½ hours, at least 24 boards and full green masterpoints.</span></li>
+          <li><strong>Abridged</strong><span>About 3 hours and 20–22 boards, with extra time per round and reduced masterpoints.</span></li>
+          <li><strong>Starter</strong><span>15–18 boards in a relaxed, supervised game for newer players. Bidding aids are welcome.</span></li>
+        </ul>
+      </article>
+      <article class="feature-card host-card">
+        <p class="eyebrow">No partner needed</p><h2>Hosted sessions</h2>
+        <p>A host is provided at these sessions. Singles are paired up, and the host plays if needed.</p>
+        <ul class="host-links">
+          {hostSignups.map((item) => <li><a href={item.url} target="_blank" rel="noreferrer">{item.day} host signup <span aria-hidden="true">↗</span></a></li>)}
+        </ul>
+      </article>
+    </div>
+    <div class="notice-card notice-plain"><strong>Before you arrive</strong><span>Please be seated 15 minutes before play. Sessions include a 15-minute refreshment break. Fees are $4 for members and $6 for visitors.</span></div>
+  </section>
+</SiteLayout>

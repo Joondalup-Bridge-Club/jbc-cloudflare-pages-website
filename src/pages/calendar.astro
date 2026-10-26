@@ -1,0 +1,38 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { hostSignups } from "../data/sessions";
+---
+<SiteLayout title="Club calendar | Joondalup Bridge Club" description="Weekly sessions and event signup information for Joondalup Bridge Club.">
+  <section class="page-hero">
+    <p class="eyebrow">What's on</p>
+    <h1>Club calendar</h1>
+    <p>Find a regular game or sign up to help host a session. Event registrations are managed through Signup.com.</p>
+  </section>
+  <section class="section page-content">
+    <div class="content-columns">
+      <article class="feature-card">
+        <p class="eyebrow">Every week</p><h2>Regular sessions</h2>
+        <p>Our weekly games run Monday to Friday. There are standard, abridged and starter sessions for a range of experience levels.</p>
+        <a class="button button-primary" href="/sessions/">View session times <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="feature-card event-card">
+        <p class="eyebrow">Special events</p><h2>Register online</h2>
+        <p>Check the club’s event signup page for current registrations. Please sign up at least three days before an event.</p>
+        <a class="button button-primary" href="https://signup.com/go/XBxrgry" target="_blank" rel="noreferrer">View event signups <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+    <article class="feature-card event-card competition-calendar-card">
+      <p class="eyebrow">Plan ahead</p><h2>2026 competition calendar</h2>
+      <p>See the full year of special events and competitions.</p>
+      <a class="text-link" href="https://www.dropbox.com/scl/fi/davgvxqdoo4mkliau9uvi/JBC-2026-Competition-Calendar.pdf?rlkey=egndod6mlmal2unv4mkpqcepr&st=ukmxpgpn&dl=0" target="_blank" rel="noreferrer">View the calendar <span aria-hidden="true">↗</span></a>
+    </article>
+    <section class="feature-card host-card calendar-hosts">
+      <p class="eyebrow">Help at a hosted session</p><h2>Host signups</h2>
+      <p>Hosts make sure players who arrive without a partner can join a partnership.</p>
+      <ul class="host-links">
+        {hostSignups.map((item) => <li><a href={item.url} target="_blank" rel="noreferrer">{item.day} <span aria-hidden="true">↗</span></a></li>)}
+      </ul>
+    </section>
+    <p class="schedule-note">Event names, dates and signup totals change frequently. Check Signup.com for the current information.</p>
+  </section>
+</SiteLayout>

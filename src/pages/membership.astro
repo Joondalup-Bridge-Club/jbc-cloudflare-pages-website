@@ -1,0 +1,36 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+const resources = [
+  { title: "Membership form", detail: "Application form · 2025–26", url: "https://www.dropbox.com/scl/fi/yltcd88t8vi1cu5w99xm4/JBC-FRM-003-Rev-A-Membership-form-for-2025-2026.pdf?rlkey=ir0xhmcxrqaqt14b4dxozhqll&st=rygcrdiu&dl=0" },
+  { title: "New member information booklet", detail: "New member information", url: "https://www.dropbox.com/scl/fi/wnjskmul08oby5t6ig1fb/JBC-FRM-003-2026-Membership-Form.pdf?rlkey=l72tah97qwwz7ze6ka12yn9c3&st=xicodts0&dl=0" },
+  { title: "Code of Conduct", detail: "Club code of conduct", url: "https://www.dropbox.com/scl/fi/r7pxrmrfxi3bru2r4ucjb/JBC-Code-of-Conduct.pdf?rlkey=5hos9u7z9h7cwc2tx89k7wyl8&dl=0" },
+  { title: "Club constitution", detail: "Signed September 2020", url: "https://www.dropbox.com/s/109l6xejkn4eym3/Constitution%20Signed%20Sept%202020.pdf?dl=0" },
+  { title: "Latest committee meeting minutes", detail: "Shared committee folder", url: "https://www.dropbox.com/scl/fo/j9cw5yt06kv951awkad76/h?rlkey=mht12ddmwpyiqhgrxsyz765tu&dl=0" },
+  { title: "AGM 2025 minutes", detail: "Minutes of the 2025 annual general meeting", url: "https://www.dropbox.com/scl/fi/2vtvl41cnjeuj82i5m2kn/JBC-AGM-2025-Minutes.pdf?rlkey=76v3e2y54xdpyud7hi3y43s8x&st=hffl1frn&dl=0" },
+  { title: "Proxy form and guidelines", detail: "For members unable to attend a meeting", url: "https://www.dropbox.com/s/6au4bgxv6fzzeio/Proxy%20form%20%26%20guidelines.pdf?dl=0" },
+  { title: "Proxy form", detail: "Proxy form", url: "https://www.dropbox.com/s/cihe3zooisfuo9w/Proxy%20form.pdf?dl=0" },
+  { title: "Notice of motion form", detail: "Google Docs form", url: "https://docs.google.com/document/d/1O8fXZzl2et_fncR1n_wobkPlqd0m0fSE/edit" },
+  { title: "Guidelines for writing a motion", detail: "Meeting and motion guidance", url: "https://www.dropbox.com/s/60ok166kgywicwt0/Guidelines%20for%20writing%20a%20motion.pdf?dl=0" },
+  { title: "Recorders terms of reference", detail: "Club policy document", url: "https://www.dropbox.com/s/yubzzb39muautr3/Recorders%20Terms%20of%20Reference.pdf?dl=0" },
+  { title: "Committee nomination form", detail: "Nominate a member for committee", url: "https://www.dropbox.com/scl/fi/zwnr4juvpwwpv85n557pb/Committee-Nomination-form-2024-25.pdf?rlkey=h3cqnt2w8eb0j84rvlxfwsv3c&dl=0" },
+];
+---
+<SiteLayout title="Membership | Joondalup Bridge Club" description="Membership application, club documents and joining information for Joondalup Bridge Club.">
+  <section class="page-hero"><p class="eyebrow">Join the club</p><h1>Membership</h1><p>Interested in joining? Start with the membership form or contact the club.</p></section>
+  <section class="section page-content content-columns">
+    <article class="feature-card">
+      <p class="eyebrow">New members</p><h2>Come and try a session</h2>
+      <p>Visitors are welcome. Try a session, meet the members and see which game suits you. If you’re new to bridge, our lessons and starter session are a good place to begin.</p>
+      <a class="text-link" href="/sessions/">Find a session <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="feature-card">
+      <p class="eyebrow">Membership enquiries</p><h2>Questions about joining?</h2>
+      <p>Contact the Treasurer for membership enquiries.</p>
+      <a class="button button-primary" href="mailto:jbc6783@gmail.com?subject=Membership%20enquiry">Email the Treasurer <span aria-hidden="true">→</span></a>
+    </article>
+  </section>
+  <section class="section page-content">
+    <div class="section-heading"><div><p class="eyebrow">Club documents</p><h2>Forms and information</h2></div></div>
+    <div class="club-links-grid document-grid">{resources.map((item) => <a class="club-link-card" href={item.url} target="_blank" rel="noreferrer"><span class="eyebrow">{item.detail}</span><strong>{item.title}</strong><b aria-hidden="true">↗</b></a>)}</div>
+  </section>
+</SiteLayout>

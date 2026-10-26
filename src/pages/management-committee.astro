@@ -1,0 +1,24 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+const committee = [
+  { name: "Alex Bates", role: "President", email: "presidentjbc2014@gmail.com" },
+  { name: "Tony Collins", role: "Treasurer", email: "jbc6783@gmail.com" },
+  { name: "Julie Pash", role: "Secretary", email: "secretaryatjbc@gmail.com", phone: "0431 319 509" },
+  { name: "Geoff Mauger", role: "ABF Results Secretary and Technology Coordinator", email: "gwmauger@bigpond.net.au", phone: "0400 226 525" },
+  { name: "Shayne Bates", role: "Competition Coordinator", email: "compsatjbc@gmail.com" },
+  { name: "Rick Rowland", role: "Facilities Coordinator", email: "rick.rowland@hotmail.com", phone: "0429 996 514" },
+  { name: "Dirk Lapere", role: "Training Coordinator · Immediate past president", email: "lessonsjbc@gmail.com" },
+  { name: "Sue Collins", role: "Social Committee Coordinator" },
+  { name: "Brian Craig", role: "Grants Coordinator" },
+  { name: "Michael Viney", role: "Media Coordinator", email: "mike@viney.net.au", phone: "0417 961 669" },
+];
+---
+<SiteLayout title="Management committee | Joondalup Bridge Club" description="Meet and contact the volunteer management committee at Joondalup Bridge Club.">
+  <section class="page-hero"><p class="eyebrow">Club volunteers</p><h1>Management committee</h1><p>Meet the volunteers who help run the club.</p></section>
+  <section class="section page-content">
+    <div class="club-links-grid committee-grid">
+      {committee.map((person) => <article class="feature-card committee-person"><p class="eyebrow">{person.role}</p><h2>{person.name}</h2>{person.email && <a href={`mailto:${person.email}`}>{person.email}</a>}{person.phone && <a href={`tel:${person.phone.replaceAll(" ", "")}`}>{person.phone}</a>}</article>)}
+    </div>
+    <p class="schedule-note">The committee list reflects the saved club page.</p>
+  </section>
+</SiteLayout>

@@ -1,0 +1,29 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+const clubPages = [
+  { href: "/management-committee/", title: "Management committee", text: "Meet the volunteers who help run the club." },
+  { href: "/membership/", title: "Membership", text: "Ask about joining Joondalup Bridge Club." },
+  { href: "/life-members/", title: "Life members", text: "Recognising members who have made a lasting contribution." },
+  { href: "/newsletter/", title: "Newsletters", text: "Read past club newsletters and updates." },
+  { href: "/links/", title: "Useful bridge links", text: "Pianola, bridge organisations and other useful resources." },
+];
+---
+<SiteLayout title="About the club | Joondalup Bridge Club" description="Club contacts, membership information and useful links.">
+  <section class="page-hero">
+    <p class="eyebrow">Joondalup Bridge Club</p>
+    <h1>About the club</h1>
+    <p>We’re a welcoming bridge club in Perth’s northern suburbs, with regular sessions for players at different stages of the game.</p>
+  </section>
+  <section class="section page-content">
+    <div class="feature-card club-intro">
+      <p class="eyebrow">A friendly place to play</p>
+      <h2>More than a game</h2>
+      <p>With more than 350 members, Joondalup Bridge Club brings together new players, returning players and experienced duplicate pairs.</p>
+      <p>We play at Fleur Freame Pavilion in MacDonald Reserve, Padbury. Visitors are welcome at our sessions.</p>
+      <a class="text-link" href="/location/">Find the club <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="club-links-grid">
+      {clubPages.map((page) => <a class="club-link-card" href={page.href}><span class="eyebrow">Club information</span><strong>{page.title}</strong><span>{page.text}</span><b aria-hidden="true">→</b></a>)}
+    </div>
+  </section>
+</SiteLayout>

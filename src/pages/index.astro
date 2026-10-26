@@ -1,0 +1,102 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+
+const sessions = (await getCollection("sessions"))
+  .map(({ data }) => data)
+  .sort((a, b) => a.order - b.order);
+
+const details = [
+  { value: "$4 / $6", label: "Members / visitors" },
+  { value: "15 min", label: "Please arrive early" },
+  { value: "All welcome", label: "New and visiting players" },
+];
+---
+
+<SiteLayout
+  title="Joondalup Bridge Club | Friendly bridge in Perth’s north"
+  description="Find a bridge session, learn how to play, or plan a visit to Joondalup Bridge Club in Padbury. New and visiting players are welcome."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> Padbury · Perth’s northern suburbs</p>
+      <h1>A good game.<br /><em>Good company.</em></h1>
+      <p class="hero-lead">Friendly duplicate bridge for new players, returning players and experienced pairs.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/sessions/">Find a session <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="/education/">New to bridge?</a>
+      </div>
+      <p class="hero-note">More than 350 members · sessions throughout the week</p>
+    </div>
+    <div class="hero-art" aria-label="Illustration of four bridge cards">
+      <div class="card card-back"><span>♣</span></div>
+      <div class="card card-front"><b>A</b><span>♠</span><small>♠</small></div>
+      <div class="art-caption">Everyone has a seat at the table.</div>
+    </div>
+  </section>
+
+  <section class="section section-sessions" aria-labelledby="sessions-heading">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Find your game</p>
+        <h2 id="sessions-heading">This week at the club</h2>
+      </div>
+      <a class="text-link desktop-link" href="/sessions/">All session details <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="session-list">
+      {sessions.map((session) => (
+        <article class="session-card">
+          <div class="session-day">{session.day}</div>
+          <div class="session-main">
+            <h3>{session.title}</h3>
+            <p>{session.supervised ? "Supervised · no partner needed" : session.partner}{session.registration ? " · registration required" : ""}</p>
+            {session.host && <p class="session-person">Host · {session.host}</p>}
+            {session.director && <p class="session-person">Director · {session.director}</p>}
+          </div>
+          <div class="session-time">{session.time}</div>
+        </article>
+      ))}
+    </div>
+    <a class="text-link mobile-link" href="/sessions/">See all session details <span aria-hidden="true">→</span></a>
+    <p class="schedule-note">Session times and requirements can change. Check the full schedule before travelling.</p>
+  </section>
+
+  <section class="welcome-band">
+    <div class="welcome-mark" aria-hidden="true">♠</div>
+    <div>
+      <p class="eyebrow">Your first visit</p>
+      <h2>Never played before?</h2>
+      <p>Bridge is easy to start and rewarding to keep learning. Our beginner lessons and starter sessions help you find your feet at your own pace.</p>
+    </div>
+    <a class="button button-light" href="/education/">Explore beginner bridge <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="section quick-info" aria-label="Club information">
+    {details.map((item) => (
+      <article class="info-item">
+        <strong>{item.value}</strong>
+        <span>{item.label}</span>
+      </article>
+    ))}
+    <a class="info-location" href="/location/">
+      <span class="pin" aria-hidden="true">⌖</span>
+      <span><strong>Fleur Freame Lesser Hall</strong><small>MacDonald Reserve, Padbury</small></span>
+      <span class="info-arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <section class="section lower-cards">
+    <article class="feature-card event-card">
+      <p class="eyebrow">What's on</p>
+      <h2>Club calendar</h2>
+      <p>See the weekly session schedule and find links for special events and registrations.</p>
+      <a class="text-link" href="/calendar/">View the calendar <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="feature-card results-card">
+      <p class="eyebrow">Club information</p>
+      <h2>Get to know the club</h2>
+      <p>Membership information, club contacts and useful bridge links.</p>
+      <a class="text-link" href="/club/">Explore club information <span aria-hidden="true">→</span></a>
+    </article>
+  </section>
+</SiteLayout>

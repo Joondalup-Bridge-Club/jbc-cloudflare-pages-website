@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Joondalup Bridge Club",
+  description = "Friendly duplicate bridge in Perth's northern suburbs.",
+} = Astro.props;
+
+const nav = [
+  { href: "/sessions/", label: "Play" },
+  { href: "/education/", label: "Learn" },
+  { href: "/calendar/", label: "Calendar" },
+  { href: "/club/", label: "Club" },
+  { href: "/location/", label: "Visit" },
+];
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#123c36" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Joondalup Bridge Club home">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <span>Joondalup<br />Bridge Club</span>
+      </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+      <a class="header-cta" href="/location/">Plan a visit <span aria-hidden="true">↗</span></a>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div>
+        <a class="footer-brand" href="/">Joondalup Bridge Club</a>
+        <p>Friendly bridge in Perth’s northern suburbs.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/sessions/">Session times</a>
+        <a href="/education/">Learn bridge</a>
+        <a href="/club/">Club information</a>
+        <a href="/newsletter/">Newsletters</a>
+        <a href="/location/">Location & contact</a>
+        <a href="mailto:jbc6783@gmail.com">Email the club</a>
+      </div>
+      <small>Padbury, Western Australia</small>
+    </footer>
+  </body>
+</html>
