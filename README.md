@@ -26,3 +26,4 @@ The Sveltia CMS admin and GitHub OAuth Worker still need to be configured before
 ## Not included yet
 
 Results and live event signup counts will be added separately from their data sources. Club information, committee contacts, life-member details, newsletters and document links are based on the saved pages supplied by the club; check external document links for currency before launch.
+JBC uses signup.com for host and event signups & pianola for bridge results
