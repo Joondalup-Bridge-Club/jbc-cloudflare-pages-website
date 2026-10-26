@@ -2,6 +2,8 @@
 
 Mobile-first static website built with Astro for Cloudflare Pages.
 
+Project guidance for maintainers and coding agents is in [`AGENTS.md`](AGENTS.md). See [`docs/`](docs/) for the architecture, decisions and design criteria.
+
 ## Local preview
 
 ```sh
