@@ -1,0 +1,17 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import page from "../data/pages/life-members.json";
+---
+<SiteLayout title="Life members | Joondalup Bridge Club" description="Life members of Joondalup Bridge Club and their contributions.">
+  <section class="page-hero"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.intro}</p></section>
+  <section class="section page-content">
+    <div class="club-links-grid life-members-grid">
+      {page.members.map((person) => <article class="feature-card life-member-person">
+        {person.image && <img class="person-portrait" src={person.image} alt={`Portrait of ${person.name}`} width="180" height="180" loading="lazy" decoding="async" />}
+        <p class="eyebrow">Life member · {person.elected}</p>
+        <h2>{person.name}</h2>
+        <p>{person.detail}</p>
+      </article>)}
+    </div>
+  </section>
+</SiteLayout>

@@ -1,0 +1,19 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import page from "../data/pages/committee.json";
+---
+<SiteLayout title="Management committee | Joondalup Bridge Club" description="Meet and contact the volunteer management committee at Joondalup Bridge Club.">
+  <section class="page-hero"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.intro}</p></section>
+  <section class="section page-content">
+    <div class="club-links-grid committee-grid">
+      {page.people.map((person) => <article class="feature-card committee-person">
+        {person.image && <img class="person-portrait" src={person.image} alt={`Portrait of ${person.name}`} width="180" height="180" loading="lazy" decoding="async" />}
+        <p class="eyebrow">{person.role}</p>
+        <h2>{person.name}</h2>
+        {person.email && <a href={`mailto:${person.email}`}>{person.email}</a>}
+        {person.phone && <a href={`tel:${person.phone.replaceAll(" ", "")}`}>{person.phone}</a>}
+      </article>)}
+    </div>
+    <p class="schedule-note">{page.note}</p>
+  </section>
+</SiteLayout>

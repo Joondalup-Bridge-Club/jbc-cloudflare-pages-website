@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "eyebrow": "Club volunteers",
+    "heading": "Management committee",
+    "intro": "Meet the volunteers who help run the club."
+  },
+  "people": [
+    { "name": "Alex Bates", "role": "President", "image": "/images/committee/Alex Bates.png", "email": "presidentjbc2014@gmail.com" },
+    { "name": "Tony Collins", "role": "Treasurer", "image": "/images/committee/Tony Collins.png", "email": "jbc6783@gmail.com" },
+    { "name": "Julie Pash", "role": "Secretary", "image": "/images/committee/Julie Pash.png", "email": "secretaryatjbc@gmail.com", "phone": "0431 319 509" },
+    { "name": "Geoff Mauger", "role": "ABF Results Secretary and Technology Coordinator", "image": "/images/committee/Geoff Mauger.png", "email": "gwmauger@bigpond.net.au", "phone": "0400 226 525" },
+    { "name": "Shayne Bates", "role": "Competition Coordinator", "image": "/images/committee/Shayne Bates.png", "email": "compsatjbc@gmail.com" },
+    { "name": "Rick Rowland", "role": "Facilities Coordinator", "image": "/images/committee/Rick Rowland.png", "email": "rick.rowland@hotmail.com", "phone": "0429 996 514" },
+    { "name": "Dirk Lapere", "role": "Training Coordinator · Immediate past president", "image": "/images/committee/Dirk Lapere.png", "email": "lessonsjbc@gmail.com" },
+    { "name": "Sue Collins", "role": "Social Committee Coordinator", "image": "/images/committee/Sue Collins.png" },
+    { "name": "Brian Craig", "role": "Grants Coordinator", "image": "/images/committee/Brian Craig.png" },
+    { "name": "Michael Viney", "role": "Media Coordinator", "image": "/images/committee/Michael Viney.png", "email": "mike@viney.net.au", "phone": "0417 961 669" }
+  ],
+  "note": "The committee list reflects the saved club page."
+}

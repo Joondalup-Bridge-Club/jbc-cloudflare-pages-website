@@ -1,0 +1,23 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import page from "../data/pages/membership.json";
+---
+<SiteLayout title="Membership | Joondalup Bridge Club" description="Membership application, club documents and joining information for Joondalup Bridge Club.">
+  <section class="page-hero"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.intro}</p></section>
+  <section class="section page-content content-columns">
+    <article class="feature-card">
+      <p class="eyebrow">{page.newMembers.eyebrow}</p><h2>{page.newMembers.heading}</h2>
+      <p>{page.newMembers.text}</p>
+      <a class="text-link" href="/sessions/">{page.newMembers.action} <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="feature-card">
+      <p class="eyebrow">{page.enquiries.eyebrow}</p><h2>{page.enquiries.heading}</h2>
+      <p>{page.enquiries.text}</p>
+      <a class="button button-primary" href={page.enquiries.emailUrl}>{page.enquiries.action} <span aria-hidden="true">→</span></a>
+    </article>
+  </section>
+  <section class="section page-content">
+    <div class="section-heading"><div><p class="eyebrow">{page.documents.eyebrow}</p><h2>{page.documents.heading}</h2></div></div>
+    <div class="club-links-grid document-grid">{page.documents.items.map((item) => <a class="club-link-card" href={item.url} target="_blank" rel="noreferrer"><span class="eyebrow">{item.detail}</span><strong>{item.title}</strong><b aria-hidden="true">↗</b></a>)}</div>
+  </section>
+</SiteLayout>

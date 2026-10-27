@@ -1,0 +1,508 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: Joondalup-Bridge-Club/jbc-cloudflare-pages-website
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: public/media
+public_folder: /media
+
+collections:
+  - name: sessions
+    label: Weekly sessions
+    label_singular: Session
+    folder: src/content/sessions
+    extension: md
+    format: yaml-frontmatter
+    create: false
+    delete: false
+    publish_mode: editorial_workflow
+    fields:
+      - { label: Day, name: day, widget: string }
+      - { label: Time, name: time, widget: string }
+      - { label: Session name, name: title, widget: string }
+      - label: Match format
+        name: matchFormat
+        widget: select
+        options: [Pairs, Swiss pairs, Teams]
+      - label: Session format
+        name: sessionFormat
+        widget: select
+        options: [Standard, Abridged, Starter]
+      - label: Restrictions
+        name: restrictions
+        widget: select
+        options: ["Open", "Restricted (<300)", "Novice (<100)", "Supernovice (<35)"]
+      - label: Players must bring their own partner
+        name: partnerRequired
+        widget: boolean
+        hint: Set this only when players must arrange their own partner. Hosted and supervised sessions do not require one.
+      - { label: Hosted session, name: hosted, widget: boolean, default: false }
+      - { label: Supervised session, name: supervised, widget: boolean, default: false }
+      - { label: Signup URL, name: registration, widget: string, required: false }
+      - { label: Host signup URL, name: hostRegistration, widget: string, required: false }
+      - { label: Host name, name: host, widget: string, required: false }
+      - { label: Director name, name: director, widget: string, required: false }
+      - { label: Display order, name: order, widget: number, value_type: int }
+
+  - name: events
+    label: Events
+    label_singular: Event
+    folder: src/content/events
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    delete: true
+    publish_mode: editorial_workflow
+    fields:
+      - label: Event date
+        name: date
+        widget: datetime
+        type: date
+        date_format: YYYY-MM-DD
+      - label: Start time
+        name: time
+        widget: datetime
+        type: time
+        time_format: HH:mm
+        required: false
+      - { label: Event title, name: title, widget: string }
+      - label: Match format
+        name: matchFormat
+        widget: select
+        options: [Pairs, Swiss pairs, Teams]
+      - label: Masterpoint colour
+        name: pointType
+        widget: select
+        options: [Green, Red, Gold]
+        required: false
+      - label: Restrictions
+        name: restrictions
+        widget: select
+        options: ["Open", "Restricted (<300)", "Novice (<100)", "Supernovice (<35)"]
+        required: false
+      - { label: Event details, name: description, widget: text, required: false }
+      - { label: Registration URL, name: registration, widget: string, required: false }
+
+  - name: pages
+    label: General pages
+    files:
+      - name: home
+        label: Home page
+        file: src/data/pages/home.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: First heading line, name: firstLine, widget: string }
+              - { label: Second heading line, name: secondLine, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - { label: Main button, name: primaryAction, widget: string }
+              - { label: Secondary button, name: secondaryAction, widget: string }
+              - { label: Supporting text, name: note, widget: string }
+          - label: Session section
+            name: sessions
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Desktop link, name: allSessions, widget: string }
+              - { label: Mobile link, name: mobileSessions, widget: string }
+              - { label: Note, name: note, widget: text }
+          - label: Welcome section
+            name: welcome
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button, name: action, widget: string }
+          - label: Quick details
+            name: details
+            widget: list
+            fields:
+              - { label: Main text, name: value, widget: string }
+              - { label: Supporting text, name: label, widget: string }
+          - label: Location card
+            name: location
+            widget: object
+            fields:
+              - { label: Venue, name: venue, widget: string }
+              - { label: Location, name: detail, widget: string }
+          - label: Lower cards
+            name: lowerCards
+            widget: list
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button, name: action, widget: string }
+
+      - name: sessions-page
+        label: Sessions page
+        file: src/data/pages/sessions.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Partner notice
+            name: partnerNotice
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Schedule
+            name: schedule
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Link, name: planVisit, widget: string }
+          - label: Session formats
+            name: formats
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Formats
+                name: items
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Details, name: detail, widget: text }
+          - label: Hosted sessions
+            name: hosted
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Before arrival
+            name: beforeArrival
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+
+      - name: calendar
+        label: Calendar page
+        file: src/data/pages/calendar.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Regular sessions
+            name: regular
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button, name: action, widget: string }
+          - label: Special events
+            name: events
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Signup URL, name: url, widget: string }
+              - { label: Button, name: action, widget: string }
+          - label: Competition calendar
+            name: competition
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Calendar URL, name: url, widget: string }
+              - { label: Button, name: action, widget: string }
+          - label: Host signups
+            name: hosts
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: Signup note, name: note, widget: text }
+
+      - name: club
+        label: About the club page
+        file: src/data/pages/club.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Introduction
+            name: introCard
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - { label: Button, name: action, widget: string }
+          - label: Club information links
+            name: pages
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+              - { label: Page path, name: href, widget: string }
+
+      - name: education
+        label: Learn bridge page
+        file: src/data/pages/education.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Beginner course
+            name: course
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - { label: Contact email URL, name: emailUrl, widget: string }
+              - { label: Button, name: action, widget: string }
+          - label: Starter session
+            name: starter
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Time, name: time, widget: string }
+              - { label: Button, name: action, widget: string }
+          - label: Course resources
+            name: resources
+            widget: list
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: URL, name: url, widget: string }
+          - label: Contact section
+            name: welcome
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Contact email URL, name: emailUrl, widget: string }
+              - { label: Button, name: action, widget: string }
+
+      - name: location
+        label: Visit the club page
+        file: src/data/pages/location.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Venue
+            name: venue
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Venue name, name: heading, widget: string }
+              - label: Address lines
+                name: address
+                widget: list
+                field: { label: Address line, name: line, widget: string }
+              - { label: Directions URL, name: directionsUrl, widget: string }
+              - { label: Directions button, name: directions, widget: string }
+              - { label: Venue details, name: detail, widget: text }
+          - label: Arrival information
+            name: arrival
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Details
+                name: items
+                widget: list
+                field: { label: Detail, name: detail, widget: text }
+              - { label: Button, name: action, widget: string }
+          - label: Contact
+            name: contact
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Email link, name: emailUrl, widget: string }
+              - { label: Button, name: action, widget: string }
+
+      - name: membership
+        label: Membership page
+        file: src/data/pages/membership.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: New members
+            name: newMembers
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button, name: action, widget: string }
+          - label: Membership enquiries
+            name: enquiries
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Email link, name: emailUrl, widget: string }
+              - { label: Button, name: action, widget: string }
+          - label: Club documents
+            name: documents
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Documents
+                name: items
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Details, name: detail, widget: string }
+                  - { label: URL, name: url, widget: string }
+
+      - name: committee
+        label: Management committee page
+        file: src/data/pages/committee.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Committee members
+            name: people
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - label: Portrait
+                name: image
+                widget: image
+                required: false
+                accept: image/png,image/jpeg,image/webp
+                media_folder: /public/images/committee
+                public_folder: /images/committee
+              - { label: Email, name: email, widget: string, required: false }
+              - { label: Phone, name: phone, widget: string, required: false }
+          - { label: Note, name: note, widget: text }
+
+      - name: life-members
+        label: Life members page
+        file: src/data/pages/life-members.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Life members
+            name: members
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Year elected, name: elected, widget: number, value_type: int }
+              - label: Portrait
+                name: image
+                widget: image
+                required: false
+                accept: image/png,image/jpeg,image/webp
+                media_folder: /public/images/life-members
+                public_folder: /images/life-members
+              - { label: Contribution, name: detail, widget: text }
+
+      - name: newsletter
+        label: Newsletters page
+        file: src/data/pages/newsletter.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Newsletter issues
+            name: issues
+            widget: list
+            fields:
+              - { label: Issue title, name: title, widget: string }
+              - { label: PDF URL, name: url, widget: string }
+
+      - name: links
+        label: Useful links page
+        file: src/data/pages/links.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+          - label: Resources
+            name: resources
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: detail, widget: text }
+              - { label: URL, name: url, widget: string }

@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "eyebrow": "Our club community",
+    "heading": "Life members",
+    "intro": "With thanks to members whose service has helped shape the club."
+  },
+  "members": [
+    { "name": "David Wheaton", "elected": 2021, "image": "/images/life-members/David Wheaton.png", "detail": "Founder and inaugural president (2014–2020); director, teacher, recorder and author of the JBC beginner course book." },
+    { "name": "Geoff Mauger", "elected": 2024, "image": "/images/life-members/Geoff Mauger.png", "detail": "ABF Secretary; director, card dealer and IT coordinator." },
+    { "name": "Claudine Lapere", "elected": 2025, "image": "/images/life-members/Claudine Lapere.png", "detail": "Treasurer (2017–2024), card dealer and prolific volunteer." },
+    { "name": "Dirk Lapere", "elected": 2026, "image": "/images/life-members/Dirk Lapere.png", "detail": "President (2020–2025), vice president (2019), training coordinator, director, dealer, trainer and volunteer." }
+  ]
+}

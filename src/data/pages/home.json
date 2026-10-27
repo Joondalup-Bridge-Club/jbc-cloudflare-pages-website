@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "eyebrow": "Padbury · Perth’s northern suburbs",
+    "firstLine": "A good game.",
+    "secondLine": "Good company.",
+    "lead": "Friendly duplicate bridge for new players, returning players and experienced pairs.",
+    "primaryAction": "Find a session",
+    "secondaryAction": "New to bridge?",
+    "note": "More than 350 members · sessions throughout the week"
+  },
+  "sessions": {
+    "eyebrow": "Find your game",
+    "heading": "This week at the club",
+    "allSessions": "All session details",
+    "mobileSessions": "See all session details",
+    "note": "Session times and requirements can change. Check the full schedule before travelling."
+  },
+  "welcome": {
+    "eyebrow": "Your first visit",
+    "heading": "Never played before?",
+    "text": "Bridge is easy to start and rewarding to keep learning. Our beginner lessons and starter sessions help you find your feet at your own pace.",
+    "action": "Explore beginner bridge"
+  },
+  "details": [
+    { "value": "$4 / $6", "label": "Members / visitors" },
+    { "value": "15 min", "label": "Please arrive early" },
+    { "value": "All welcome", "label": "New and visiting players" }
+  ],
+  "location": {
+    "venue": "Fleur Freame Lesser Hall",
+    "detail": "MacDonald Reserve, Padbury"
+  },
+  "lowerCards": [
+    {
+      "eyebrow": "What's on",
+      "heading": "Club calendar",
+      "text": "See the weekly session schedule and find links for special events and registrations.",
+      "action": "View the calendar"
+    },
+    {
+      "eyebrow": "Club information",
+      "heading": "Get to know the club",
+      "text": "Membership information, club contacts and useful bridge links.",
+      "action": "Explore club information"
+    }
+  ]
+}

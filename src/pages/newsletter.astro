@@ -1,0 +1,10 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import page from "../data/pages/newsletter.json";
+---
+<SiteLayout title="Newsletters | Joondalup Bridge Club" description="Read past Joondalup Bridge Club newsletters.">
+  <section class="page-hero"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.intro}</p></section>
+  <section class="section page-content">
+    <div class="club-links-grid document-grid">{page.issues.map((item) => <a class="club-link-card" href={item.url} target="_blank" rel="noreferrer"><span class="eyebrow">Club newsletter</span><strong>{item.title}</strong><b aria-hidden="true">↗</b></a>)}</div>
+  </section>
+</SiteLayout>

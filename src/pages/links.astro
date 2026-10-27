@@ -1,0 +1,12 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import page from "../data/pages/links.json";
+---
+<SiteLayout title="Useful bridge links | Joondalup Bridge Club" description="Bridge organisations, club resources and youth bridge links.">
+  <section class="page-hero"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.intro}</p></section>
+  <section class="section page-content">
+    <div class="club-links-grid">
+      {page.resources.map((item) => <a class="club-link-card" href={item.url} target="_blank" rel="noreferrer"><span class="eyebrow">External resource</span><strong>{item.title}</strong><span>{item.detail}</span><b aria-hidden="true">↗</b></a>)}
+    </div>
+  </section>
+</SiteLayout>
