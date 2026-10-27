@@ -1,34 +1,33 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import page from "../data/pages/location.json";
 ---
 <SiteLayout title="Location and contact | Joondalup Bridge Club" description="Visit Joondalup Bridge Club at Fleur Freame Pavilion in Padbury, Western Australia.">
   <section class="page-hero">
-    <p class="eyebrow">Come and play</p>
-    <h1>Visit the club</h1>
-    <p>New and visiting players are welcome. Get in touch if you’d like help choosing a session.</p>
+    <p class="eyebrow">{page.hero.eyebrow}</p>
+    <h1>{page.hero.heading}</h1>
+    <p>{page.hero.intro}</p>
   </section>
   <section class="section page-content visit-grid">
     <article class="feature-card">
-      <p class="eyebrow">Find us</p>
-      <h2>Fleur Freame Lesser Hall</h2>
-      <p>MacDonald Reserve<br />Corner Forrest Road and Marmion Avenue<br />Padbury WA 6025</p>
-      <a class="button button-primary" href="https://www.google.com/maps/place/-31.804067636043793,115.75700526367188" target="_blank" rel="noreferrer">Open directions <span aria-hidden="true">↗</span></a>
-      <p class="location-detail">Air-conditioned venue with comfortable seating and free parking.</p>
+      <p class="eyebrow">{page.venue.eyebrow}</p>
+      <h2>{page.venue.heading}</h2>
+      <p>{page.venue.address.map((line) => <>{line}<br /></>)}</p>
+      <a class="button button-primary" href={page.venue.directionsUrl} target="_blank" rel="noreferrer">{page.venue.directions} <span aria-hidden="true">↗</span></a>
+      <p class="location-detail">{page.venue.detail}</p>
     </article>
     <article class="feature-card">
-      <p class="eyebrow">Before you arrive</p>
-      <h2>A few useful details</h2>
+      <p class="eyebrow">{page.arrival.eyebrow}</p>
+      <h2>{page.arrival.heading}</h2>
       <ul>
-        <li>Please be seated 15 minutes before the session.</li>
-        <li>Session fees are $4 for members and $6 for visitors.</li>
-        <li>Visitors are welcome at our regular sessions.</li>
+        {page.arrival.items.map((item) => <li>{item}</li>)}
       </ul>
-      <a class="text-link" href="/sessions/">Choose a session <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="/sessions/">{page.arrival.action} <span aria-hidden="true">→</span></a>
     </article>
     <article class="feature-card contact-card">
-      <p class="eyebrow">Questions?</p><h2>Contact the club</h2>
-      <p>Ask about visiting, membership or which session might suit you.</p>
-      <a class="button button-primary" href="mailto:jbc6783@gmail.com">Email Joondalup Bridge Club <span aria-hidden="true">→</span></a>
+      <p class="eyebrow">{page.contact.eyebrow}</p><h2>{page.contact.heading}</h2>
+      <p>{page.contact.text}</p>
+      <a class="button button-primary" href={page.contact.emailUrl}>{page.contact.action} <span aria-hidden="true">→</span></a>
     </article>
   </section>
 </SiteLayout>

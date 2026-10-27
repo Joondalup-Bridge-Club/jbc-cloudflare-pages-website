@@ -26,7 +26,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .site-header { position: sticky; top: 0; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px max(24px, calc((100vw - 1160px) / 2)); border-bottom: 1px solid rgba(255,255,255,.16); color: var(--white); background: var(--green); }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-size: 14px; font-weight: 700; line-height: 1.08; letter-spacing: .01em; }
-.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; color: var(--gold); font-family: "Playfair Display", Georgia, serif; font-size: 21px; }
+.brand-logo { display: block; width: 48px; height: auto; }
 .primary-nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); }
 .primary-nav a, .header-cta { color: inherit; text-decoration: none; font-size: 13px; font-weight: 600; }
 .primary-nav a { opacity: .88; }
@@ -75,9 +75,11 @@ h1, h2 { font-family: "Playfair Display", Georgia, serif; }
 .session-day { color: var(--green-2); font-size: 12px; font-weight: 700; }
 .session-main h3 { margin: 0 0 2px; font-size: 14px; line-height: 1.35; }
 .session-main p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.35; }
+.session-main p + p { margin-top: 2px; }
 .session-main p.session-person { margin-top: 3px; color: var(--green-2); font-weight: 600; }
 .session-time { color: var(--green); font-size: 13px; font-weight: 700; white-space: nowrap; }
-.session-register { grid-column: 2 / -1; justify-self: start; color: var(--green-2); font-size: 12px; font-weight: 700; text-underline-offset: 3px; }
+.session-actions { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2px; }
+.session-actions a { display: inline-flex; align-items: center; gap: 5px; padding-block: 4px; color: var(--green-2); font-size: 12px; font-weight: 700; line-height: 1.4; text-underline-offset: 3px; }
 .schedule-note { margin: 14px 0 0; color: var(--muted); font-size: 12px; }
 .mobile-link { display: none; }
 
@@ -99,6 +101,10 @@ h1, h2 { font-family: "Playfair Display", Georgia, serif; }
 .feature-card h2, .page-content h2 { margin-bottom: 10px; font-size: 25px; }
 .feature-card p:not(.eyebrow) { max-width: 46ch; margin-bottom: 17px; color: var(--muted); font-size: 14px; }
 .event-card { background: #fbf3df; border-color: #efe2c3; }
+.upcoming-events-section { margin-block: 28px; }
+.event-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.event-title { margin: 0 0 8px; font-size: 19px; line-height: 1.3; }
+.event-meta { color: var(--green-2) !important; font-size: 13px !important; font-weight: 600; }
 .results-card { background: #e9f0ec; border-color: #dbe5de; }
 
 .page-hero { padding: 60px max(24px, calc((100vw - 1080px) / 2)) 35px; background: var(--mint); }
@@ -147,6 +153,7 @@ h1, h2 { font-family: "Playfair Display", Georgia, serif; }
 .committee-person .eyebrow { min-height: 2.5em; }
 .committee-person a { width: fit-content; color: var(--green-2); font-size: 13px; overflow-wrap: anywhere; text-underline-offset: 3px; }
 .life-member-person { align-content: start; }
+.person-portrait { width: 90px; height: 90px; margin-bottom: 8px; border-radius: 50%; object-fit: cover; background: var(--mint); }
 .competition-calendar-card { margin-top: 14px; }
 .education-resources { margin-top: 20px; }
 
@@ -162,7 +169,7 @@ h1, h2 { font-family: "Playfair Display", Georgia, serif; }
 @media (max-width: 760px) {
   .site-header { position: static; display: grid; grid-template-columns: 1fr auto; gap: 11px 10px; padding: 12px 16px 10px; }
   .brand { font-size: 13px; }
-  .brand-mark { width: 31px; height: 31px; font-size: 19px; }
+  .brand-logo { width: 44px; }
   .header-cta { padding: 8px 10px; font-size: 12px; }
   .primary-nav { grid-column: 1 / -1; display: flex; gap: 7px; overflow-x: auto; padding: 2px 0 4px; scrollbar-width: none; }
   .primary-nav::-webkit-scrollbar { display: none; }
@@ -188,6 +195,7 @@ h1, h2 { font-family: "Playfair Display", Georgia, serif; }
   .session-day { grid-row: span 2; align-self: start; padding-top: 2px; font-size: 11px; }
   .session-main h3 { font-size: 13px; }
   .session-main p { font-size: 11px; }
+  .event-grid { grid-template-columns: 1fr; }
   .session-time { grid-column: 2; grid-row: 2; color: var(--muted); font-size: 11px; }
   .mobile-link { display: inline-flex; margin-top: 15px; }
   .schedule-note { font-size: 11px; }
@@ -201,7 +209,7 @@ h1, h2 { font-family: "Playfair Display", Georgia, serif; }
   .lower-cards, .visit-grid { grid-template-columns: 1fr; }
   .content-columns, .club-links-grid { grid-template-columns: 1fr; }
   .contact-card { grid-column: auto; }
-  .session-register { grid-column: 2; }
+  .session-actions { grid-column: 2; }
   .calendar-hosts { margin-top: 10px; }
   .lower-cards { gap: 10px; padding-top: 0; }
   .feature-card { padding: 20px; }

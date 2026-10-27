@@ -2,8 +2,10 @@
 day: Tuesday
 time: 6:45 pm
 title: Standard Club
-format: Standard
-partner: Bring a partner
+matchFormat: Pairs
+sessionFormat: Standard
+restrictions: Open
+partnerRequired: true
 hosted: false
 supervised: false
 order: 3

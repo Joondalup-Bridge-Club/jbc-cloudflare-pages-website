@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "eyebrow": "Come and play",
+    "heading": "Visit the club",
+    "intro": "New and visiting players are welcome. Get in touch if you’d like help choosing a session."
+  },
+  "venue": {
+    "eyebrow": "Find us",
+    "heading": "Fleur Freame Lesser Hall",
+    "address": [
+      "MacDonald Reserve",
+      "Corner Forrest Road and Marmion Avenue",
+      "Padbury WA 6025"
+    ],
+    "directionsUrl": "https://www.google.com/maps/place/-31.804067636043793,115.75700526367188",
+    "directions": "Open directions",
+    "detail": "Air-conditioned venue with comfortable seating and free parking."
+  },
+  "arrival": {
+    "eyebrow": "Before you arrive",
+    "heading": "A few useful details",
+    "items": [
+      "Please be seated 15 minutes before the session.",
+      "Session fees are $4 for members and $6 for visitors.",
+      "Visitors are welcome at our regular sessions."
+    ],
+    "action": "Choose a session"
+  },
+  "contact": {
+    "eyebrow": "Questions?",
+    "heading": "Contact the club",
+    "text": "Ask about visiting, membership or which session might suit you.",
+    "emailUrl": "mailto:jbc6783@gmail.com",
+    "action": "Email Joondalup Bridge Club"
+  }
+}

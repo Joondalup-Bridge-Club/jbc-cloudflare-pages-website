@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "eyebrow": "Joondalup Bridge Club",
+    "heading": "About the club",
+    "intro": "We’re a welcoming bridge club in Perth’s northern suburbs, with regular sessions for players at different stages of the game."
+  },
+  "introCard": {
+    "eyebrow": "A friendly place to play",
+    "heading": "More than a game",
+    "paragraphs": [
+      "With more than 350 members, Joondalup Bridge Club brings together new players, returning players and experienced duplicate pairs.",
+      "We play at Fleur Freame Pavilion in MacDonald Reserve, Padbury. Visitors are welcome at our sessions."
+    ],
+    "action": "Find the club"
+  },
+  "pages": [
+    { "title": "Management committee", "text": "Meet the volunteers who help run the club.", "href": "/management-committee/" },
+    { "title": "Membership", "text": "Ask about joining Joondalup Bridge Club.", "href": "/membership/" },
+    { "title": "Life members", "text": "Recognising members who have made a lasting contribution.", "href": "/life-members/" },
+    { "title": "Newsletters", "text": "Read past club newsletters and updates.", "href": "/newsletter/" },
+    { "title": "Useful bridge links", "text": "Pianola, bridge organisations and other useful resources.", "href": "/links/" }
+  ]
+}

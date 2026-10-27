@@ -2,8 +2,10 @@
 day: Thursday
 time: 1:30 pm
 title: Standard Club
-format: Standard
-partner: Bring a partner
+matchFormat: Pairs
+sessionFormat: Standard
+restrictions: Open
+partnerRequired: true
 hosted: false
 supervised: false
 registration: https://signup.com/go/GwepPvd

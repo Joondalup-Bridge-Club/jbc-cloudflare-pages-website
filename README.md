@@ -19,9 +19,9 @@ pnpm dev
 
 ## Session schedule
 
-Weekly sessions are stored in `src/content/sessions/`. Each Markdown file represents one session. Optional `host` and `director` fields are displayed on the session cards only when a name is supplied. Signup links and partnership notes are stored with the relevant session.
+Weekly sessions are stored in `src/content/sessions/`, with match format, session format, restrictions, partner requirements, hosted/supervised status, and signup links on each record. Dated events are separate records in `src/content/events/` and are highlighted on the home and calendar pages when upcoming.
 
-The Sveltia CMS admin and GitHub OAuth Worker still need to be configured before editors can update this content through a browser.
+The Sveltia CMS editor is available at `/admin/`. It edits weekly sessions, dated events, and structured content for the main site pages, with changes submitted through GitHub pull requests. See [`docs/CMS.md`](docs/CMS.md) for editor access and OAuth setup. The Cloudflare OAuth Worker and GitHub OAuth app still require account-level configuration before browser-based GitHub sign-in is ready.
 
 ## Not included yet
 

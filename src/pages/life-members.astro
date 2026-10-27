@@ -1,17 +1,17 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
-const members = [
-  { name: "David Wheaton", elected: 2021, detail: "Founder and inaugural president (2014–2020); director, teacher, recorder and author of the JBC beginner course book." },
-  { name: "Geoff Mauger", elected: 2024, detail: "ABF Secretary; director, card dealer and IT coordinator." },
-  { name: "Claudine Lapere", elected: 2025, detail: "Treasurer (2017–2024), card dealer and prolific volunteer." },
-  { name: "Dirk Lapere", elected: 2026, detail: "President (2020–2025), vice president (2019), training coordinator, director, dealer, trainer and volunteer." },
-];
+import page from "../data/pages/life-members.json";
 ---
 <SiteLayout title="Life members | Joondalup Bridge Club" description="Life members of Joondalup Bridge Club and their contributions.">
-  <section class="page-hero"><p class="eyebrow">Our club community</p><h1>Life members</h1><p>With thanks to members whose service has helped shape the club.</p></section>
+  <section class="page-hero"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.intro}</p></section>
   <section class="section page-content">
     <div class="club-links-grid life-members-grid">
-      {members.map((person) => <article class="feature-card life-member-person"><p class="eyebrow">Life member · {person.elected}</p><h2>{person.name}</h2><p>{person.detail}</p></article>)}
+      {page.members.map((person) => <article class="feature-card life-member-person">
+        {person.image && <img class="person-portrait" src={person.image} alt={`Portrait of ${person.name}`} width="180" height="180" loading="lazy" decoding="async" />}
+        <p class="eyebrow">Life member · {person.elected}</p>
+        <h2>{person.name}</h2>
+        <p>{person.detail}</p>
+      </article>)}
     </div>
   </section>
 </SiteLayout>

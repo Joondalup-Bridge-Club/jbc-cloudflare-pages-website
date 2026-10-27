@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "eyebrow": "Club news",
+    "heading": "Newsletters",
+    "intro": "Catch up on club news and updates from past newsletters."
+  },
+  "issues": [
+    { "title": "February 2026", "url": "https://www.dropbox.com/scl/fi/p42gl51h7ofjchioqe2hg/Newsletter-2026-02-Feb.pdf?rlkey=56dbo3w16al6uz2mvsejmjeg6&st=ucvqhzds&dl=0" },
+    { "title": "May 2025", "url": "https://www.dropbox.com/scl/fi/emhz45k7ktxjfbnm57z6j/Newsletter-May-2025.pdf?rlkey=35fdw2vgiluuw13i7efw3r8wo&st=3yy3xblm&dl=0" },
+    { "title": "January 2025", "url": "https://www.dropbox.com/scl/fi/bh7ug6roj72h44ypo1eiq/Newsletter-January-2025.pdf?rlkey=qpzo90oan2ez91r85s05z37z6&st=lzoscvbq&dl=0" },
+    { "title": "November 2024", "url": "https://www.dropbox.com/scl/fi/t8rep1b9wmjxf5hl6fasn/Newsletter-November-2024.pdf?rlkey=ieljmkbvszz27smm7ym3e9dco&st=qa1f18mm&dl=0" },
+    { "title": "July 2024", "url": "https://www.dropbox.com/scl/fi/lhquitgaip7gcrmzsjj4y/Newsletter-July.pdf?rlkey=7v7fn2tpi7xx8id5j2n5ohlyr&st=4uoxm6ab&dl=0" },
+    { "title": "April 2024", "url": "https://www.dropbox.com/scl/fi/zf6f34ldmuyljb3e2al5f/April-2024.pdf?rlkey=6pwhteq5r46rsjsfl3wrii8d8&st=q8uxfqd0&dl=0" },
+    { "title": "January 2024", "url": "https://www.dropbox.com/scl/fi/p4bj97bksriadvuf31l8g/January-2024.pdf?rlkey=u4qm2n90x7v8qsasjjqt9k4lh&dl=0" },
+    { "title": "December 2023", "url": "https://www.dropbox.com/scl/fi/rmo84mpillwl87tpub6x5/December-2023.pdf?rlkey=edcrb6k0d0e3duqx2vbri7eg1&dl=0" },
+    { "title": "September 2023", "url": "https://www.dropbox.com/scl/fi/ytudjnryjuh3zsivkoe1v/Sept-2023.pdf?rlkey=z877e95ftsr1iyt4k1kuvhhfa&dl=0" },
+    { "title": "June 2023", "url": "https://www.dropbox.com/scl/fi/kqjbpxbcvvmon3i0xz5yj/June-2023.pdf?rlkey=j7u8u1iwl46acqia5kzxonvsi&dl=0" },
+    { "title": "March 2023", "url": "https://www.dropbox.com/s/07duvdbvmsoyirj/March%202023.pdf?dl=0" },
+    { "title": "December 2022", "url": "https://www.dropbox.com/s/0mm8q2bkxknk7b0/December%202022.pdf?dl=0" },
+    { "title": "October 2022", "url": "https://www.dropbox.com/s/gq776izyy7z2vrs/October%202022.pdf?dl=0" },
+    { "title": "June 2022", "url": "https://www.dropbox.com/s/in7yhwt4bltf1q2/June%202022.pdf?dl=0" }
+  ]
+}

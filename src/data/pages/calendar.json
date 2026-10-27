@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "eyebrow": "What's on",
+    "heading": "Club calendar",
+    "intro": "Find a regular game or see upcoming dated events. Event registrations are managed through Signup.com."
+  },
+  "regular": {
+    "eyebrow": "Every week",
+    "heading": "Regular sessions",
+    "text": "Our weekly games run Monday to Friday. There are standard, abridged and starter sessions for a range of experience levels.",
+    "action": "View session times"
+  },
+  "events": {
+    "eyebrow": "Special events",
+    "heading": "Event signups",
+    "text": "Use the club’s Signup.com page for current event registration details.",
+    "url": "https://signup.com/go/XBxrgry",
+    "action": "View event signups"
+  },
+  "competition": {
+    "eyebrow": "Plan ahead",
+    "heading": "2026 competition calendar",
+    "text": "See the full year of special events and competitions.",
+    "url": "https://www.dropbox.com/scl/fi/davgvxqdoo4mkliau9uvi/JBC-2026-Competition-Calendar.pdf?rlkey=egndod6mlmal2unv4mkpqcepr&st=ukmxpgpn&dl=0",
+    "action": "View the calendar"
+  },
+  "hosts": {
+    "eyebrow": "Help at a hosted session",
+    "heading": "Host signups",
+    "text": "Hosts make sure players who arrive without a partner can join a partnership."
+  },
+  "note": "Event dates and registration details can change. Check Signup.com for current registration information."
+}

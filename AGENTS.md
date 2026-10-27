@@ -10,7 +10,7 @@ Build a clear, welcoming, mobile-first website for Joondalup Bridge Club in Padb
 - Where is the club, and what should I know before visiting?
 - How can I learn, join, contact the club, or find club resources?
 
-The intended publishing path is GitHub → Cloudflare Pages. Club editors should eventually be able to update editorial content through Sveltia CMS; the CMS and its GitHub authentication are not yet configured. The club's main publisher is comfortable working directly in Git, while other volunteers should get a browser-based editor.
+The intended publishing path is GitHub → Cloudflare Pages. Sveltia CMS is configured at `/admin/` for weekly sessions, dated events, and structured content for the main pages. It uses GitHub pull requests; the Cloudflare OAuth Worker and GitHub OAuth app still need account-level configuration for browser-based sign-in. The club's main publisher is comfortable working directly in Git, while other volunteers should get a browser-based editor.
 
 Results and Signup.com counts are intended to be generated from data sources later. They are not implemented in this repository yet.
 
@@ -51,11 +51,12 @@ Before handing work back, run the production build when source files or configur
 
 ## Editing guidance
 
-- Weekly session records live in `src/content/sessions/*.md`; their schema is in `src/content.config.ts`.
-- Shared Signup.com host links currently live in `src/data/sessions.ts`.
+- Weekly session records live in `src/content/sessions/*.md`; dated events live separately in `src/content/events/*.md`. Their schemas are in `src/content.config.ts`.
+- Structured page content lives in `src/data/pages/*.json`; the corresponding Sveltia fields are in `public/admin/config.yml`.
+- Host signup URLs belong to their weekly session records.
 - Page markup lives in `src/pages/`; shared site navigation and footer live in `src/layouts/SiteLayout.astro`.
 - Shared styling lives in `src/styles/global.css`.
-- General pages are currently hardcoded in Astro. Do not claim they can be edited in Sveltia until CMS collections and configuration have actually been added and tested.
+- Page layouts remain in Astro; their editable copy and repeatable lists are stored in `src/data/pages/*.json`.
 
 ## Open work (not permission to make external changes)
 

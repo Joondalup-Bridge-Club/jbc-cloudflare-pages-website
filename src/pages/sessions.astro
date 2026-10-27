@@ -1,54 +1,60 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
-import { hostSignups } from "../data/sessions";
+import page from "../data/pages/sessions.json";
+import { getSessionPartnerLabel } from "../data/session-label";
 
 const sessions = (await getCollection("sessions"))
   .map(({ data }) => data)
   .sort((a, b) => a.order - b.order);
+const hostedSessions = sessions.filter((session) => session.hosted && session.hostRegistration);
 ---
 <SiteLayout title="Session times | Joondalup Bridge Club" description="Weekly session times, partner requirements and formats at Joondalup Bridge Club.">
   <section class="page-hero">
-    <p class="eyebrow">Play at JBC</p>
-    <h1>Find a session</h1>
-    <p>Choose a session that suits your experience and the kind of game you enjoy. New and visiting players are welcome.</p>
+    <p class="eyebrow">{page.hero.eyebrow}</p>
+    <h1>{page.hero.heading}</h1>
+    <p>{page.hero.intro}</p>
   </section>
   <section class="section page-content">
-    <div class="notice-card"><strong>Coming without a partner?</strong><span>Hosted sessions guarantee a partner. On Wednesday evening, the supervised Starter Session is also open to players without a partner.</span></div>
-    <div class="section-heading"><div><p class="eyebrow">Every week</p><h2>Session times</h2></div><a class="text-link" href="/location/">Plan your visit <span aria-hidden="true">→</span></a></div>
+    <div class="notice-card"><strong>{page.partnerNotice.heading}</strong><span>{page.partnerNotice.text}</span></div>
+    <div class="section-heading"><div><p class="eyebrow">{page.schedule.eyebrow}</p><h2>{page.schedule.heading}</h2></div><a class="text-link" href="/location/">{page.schedule.planVisit} <span aria-hidden="true">→</span></a></div>
     <div class="session-list session-list-full">
       {sessions.map((session) => (
         <article class="session-card">
           <div class="session-day">{session.day}</div>
           <div class="session-main">
             <h3>{session.title}</h3>
-            <p>{session.supervised ? "Supervised · no partner needed" : session.partner}</p>
+            <p>{session.matchFormat} · {session.sessionFormat} · {session.restrictions}</p>
+            <p>{getSessionPartnerLabel(session)}</p>
             {session.host && <p class="session-person">Host · {session.host}</p>}
             {session.director && <p class="session-person">Director · {session.director}</p>}
           </div>
           <div class="session-time">{session.time}</div>
-          {session.registration && <a class="session-register" href={session.registration} target="_blank" rel="noreferrer">Register <span aria-hidden="true">↗</span></a>}
+          {(session.registration || (session.hosted && session.hostRegistration)) && (
+            <div class="session-actions">
+              {session.registration && <a href={session.registration} target="_blank" rel="noreferrer">Register (required) <span aria-hidden="true">↗</span></a>}
+              {session.hosted && session.hostRegistration && <a href={session.hostRegistration} target="_blank" rel="noreferrer">Sign up as a host <span aria-hidden="true">↗</span></a>}
+            </div>
+          )}
         </article>
       ))}
     </div>
 
     <div class="content-columns">
       <article class="feature-card">
-        <p class="eyebrow">Which game?</p><h2>Session formats</h2>
+        <p class="eyebrow">{page.formats.eyebrow}</p><h2>{page.formats.heading}</h2>
         <ul class="detail-list">
-          <li><strong>Standard</strong><span>About 3½ hours, at least 24 boards and full green masterpoints.</span></li>
-          <li><strong>Abridged</strong><span>About 3 hours and 20–22 boards, with extra time per round and reduced masterpoints.</span></li>
-          <li><strong>Starter</strong><span>15–18 boards in a relaxed, supervised game for newer players. Bidding aids are welcome.</span></li>
+          {page.formats.items.map((item) => <li><strong>{item.name}</strong><span>{item.detail}</span></li>)}
         </ul>
       </article>
       <article class="feature-card host-card">
-        <p class="eyebrow">No partner needed</p><h2>Hosted sessions</h2>
-        <p>A host is provided at these sessions. Singles are paired up, and the host plays if needed.</p>
+        <p class="eyebrow">{page.hosted.eyebrow}</p><h2>{page.hosted.heading}</h2>
+        <p>{page.hosted.text}</p>
         <ul class="host-links">
-          {hostSignups.map((item) => <li><a href={item.url} target="_blank" rel="noreferrer">{item.day} host signup <span aria-hidden="true">↗</span></a></li>)}
+          {hostedSessions.map((session) => <li><a href={session.hostRegistration} target="_blank" rel="noreferrer">Sign up as a host — {session.day} <span aria-hidden="true">↗</span></a></li>)}
         </ul>
       </article>
     </div>
-    <div class="notice-card notice-plain"><strong>Before you arrive</strong><span>Please be seated 15 minutes before play. Sessions include a 15-minute refreshment break. Fees are $4 for members and $6 for visitors.</span></div>
+    <div class="notice-card notice-plain"><strong>{page.beforeArrival.heading}</strong><span>{page.beforeArrival.text}</span></div>
   </section>
 </SiteLayout>

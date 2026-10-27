@@ -10,9 +10,9 @@ The site is intended to be maintained in GitHub and published with Cloudflare Pa
 
 ```mermaid
 flowchart LR
-  EDIT[Club editors] -->|planned browser CMS| CMS[Sveltia CMS]
-  CMS -->|GitHub commits or pull requests; mode TBD| GH[GitHub repository]
-  CONTENT[Markdown session records] --> BUILD[Astro build]
+  EDIT[Club editors] -->|Sveltia CMS at /admin/| CMS[Sveltia CMS]
+  CMS -->|editorial pull requests| GH[GitHub repository]
+  CONTENT[Markdown session records and dated events] --> BUILD[Astro build]
   PAGES[Astro page templates] --> BUILD
   GH --> BUILD
   BUILD -->|static output: dist/| CF[Cloudflare Pages]
@@ -29,8 +29,11 @@ The dotted data paths are plans, not working integrations. No result data or Sig
 - **Pages:** `src/pages/` contains the home page, sessions, learning, calendar, club information, membership, committee, life members, newsletters, links, and location pages. Some legacy pages remain as aliases/redirect targets while routes are being consolidated.
 - **Shared layout:** `src/layouts/SiteLayout.astro` provides the document head, navigation, footer, and shared global stylesheet.
 - **Styles:** `src/styles/global.css` contains the visual system and responsive layouts.
-- **Session content:** One Markdown file per weekly session under `src/content/sessions/`; `src/content.config.ts` validates the records. `src/pages/index.astro` and `src/pages/sessions.astro` render those records.
-- **Signup links:** Host signup URLs are currently in `src/data/sessions.ts`. Session/event registration links may also be present as optional session fields.
+- **Session content:** One Markdown file per weekly session under `src/content/sessions/`; `src/content.config.ts` validates match format, session format, restrictions, partner requirements, hosting/supervision, and signup URLs. `src/pages/index.astro` and `src/pages/sessions.astro` render the weekly program.
+- **Event content:** Dated Markdown records under `src/content/events/` are separate from the recurring weekly program. Upcoming records are highlighted on the home and calendar pages; no event is fabricated when the collection is empty.
+- **Page content:** Structured, editable content for the main pages is stored in `src/data/pages/*.json`; Astro page templates retain control of the layouts.
+- **Editorial CMS:** `public/admin/` contains the Sveltia CMS interface and GitHub configuration. The CMS uses the `editorial_workflow` publishing mode, so changes are prepared as pull requests against `main`. Editors can update session records and the structured page data.
+- **Signup links:** Hosted-session signup URLs are stored on their weekly session records. Event registration links are optional fields on dated event records.
 - **Legacy paths:** `public/_redirects` retains redirects for old site URLs.
 - **Club documents:** Newsletters, forms, resources, and external bridge links point to their supplied external destinations. The external hosts remain responsible for serving those files.
 
@@ -38,7 +41,7 @@ The dotted data paths are plans, not working integrations. No result data or Sig
 
 ### Editorial publishing
 
-Sveltia CMS is the selected editorial interface. GitHub accounts are acceptable for editors. The admin page, CMS collections, and GitHub OAuth service are not yet configured. Authentication mode (pull-request/open authoring or direct writes) is not yet recorded as a final decision. Until the CMS is implemented, most Astro page text and links are edited in source files; only sessions are already in a content collection.
+Sveltia CMS is the editorial interface. The repository-side admin page, collections, and editorial pull-request workflow are configured. The Cloudflare OAuth Worker and GitHub OAuth app still need to be configured with account credentials and the deployed site hostname. Until that is done, editors can use Sveltia’s access-token sign-in. Astro templates and URLs are maintained in source; page text and repeatable lists are editable through structured JSON fields.
 
 ### Generated data
 
@@ -66,8 +69,10 @@ Cloudflare account/project setup is external to this repository. A successful lo
 | `src/pages/` | Page templates and routes |
 | `src/layouts/SiteLayout.astro` | Shared header, navigation, footer |
 | `src/content/sessions/` | Weekly session records |
-| `src/content.config.ts` | Session schema and collection loader |
-| `src/data/sessions.ts` | Hosted-session Signup.com URLs |
+| `src/content/events/` | Dated event records |
+| `src/content.config.ts` | Session/event schemas and collection loaders |
+| `src/data/pages/` | Structured editable page content |
+| `public/admin/` | Sveltia CMS static admin and GitHub workflow configuration |
 | `src/styles/global.css` | Shared responsive design |
 | `public/_redirects` | Legacy route redirects |
 | `docs/DECISIONS.md` | Decision record and unresolved choices |

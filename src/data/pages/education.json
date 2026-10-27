@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "eyebrow": "Start learning",
+    "heading": "Learn bridge",
+    "intro": "New to bridge or returning after a break? Learn the basics, practise in a friendly setting and find a regular game."
+  },
+  "course": {
+    "eyebrow": "Beginner course",
+    "heading": "Start with the basics",
+    "paragraphs": [
+      "Our next beginner classes are expected in January 2027. Dates and enrolment details will be announced closer to the time.",
+      "The course usually runs on Monday evenings over nine lessons. The $80 course fee includes the handbook, homework exercises and weekly lesson materials.",
+      "Lessons cover the basics of Acol bidding and supervised play. From lesson four, learners can also practise at the Wednesday evening starter session."
+    ],
+    "emailUrl": "mailto:lessonsjbc@gmail.com",
+    "action": "Ask about lessons"
+  },
+  "starter": {
+    "eyebrow": "Try a game",
+    "heading": "Wednesday Starter Session",
+    "text": "A relaxed, supervised session for newer players. You don’t need to bring a partner; a supervisor or teacher will play if needed.",
+    "time": "Wednesday at 7:00 pm",
+    "action": "See all session times"
+  },
+  "resources": [
+    {
+      "eyebrow": "Course information",
+      "title": "Beginner lessons FAQ",
+      "url": "https://www.dropbox.com/scl/fi/1fbsvs9gvh6yj9ppkfoys/FAQ-Bridge-lessons.pdf?rlkey=weuw4974pjtddrz7oj2ed11dm&st=xo7uzvi0&dl=0"
+    },
+    {
+      "eyebrow": "Getting started",
+      "title": "General information about bridge",
+      "url": "https://www.dropbox.com/scl/fi/rsn20elvy2p6qtxyli0fp/General-Info-Bridge.pdf?rlkey=tithr7w9aamh26n89uxbiud81&st=2fqj9jtb&dl=0"
+    }
+  ],
+  "welcome": {
+    "eyebrow": "Ready to learn?",
+    "heading": "We’ll help you find your feet.",
+    "text": "No experience is needed to get started. Get in touch and we’ll help you choose the right next step.",
+    "emailUrl": "mailto:lessonsjbc@gmail.com",
+    "action": "Contact the lessons team"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Play at JBC",
+    "heading": "Find a session",
+    "intro": "Choose a session that suits your experience and the kind of game you enjoy. New and visiting players are welcome."
+  },
+  "partnerNotice": {
+    "heading": "Coming without a partner?",
+    "text": "Hosted sessions guarantee a partner. On Wednesday evening, the supervised Starter Session is also open to players without a partner."
+  },
+  "schedule": {
+    "eyebrow": "Every week",
+    "heading": "Session times",
+    "planVisit": "Plan your visit"
+  },
+  "formats": {
+    "eyebrow": "Which game?",
+    "heading": "Session formats",
+    "items": [
+      { "name": "Standard", "detail": "About 3½ hours, at least 24 boards and full green masterpoints." },
+      { "name": "Abridged", "detail": "About 3 hours and 20–22 boards, with extra time per round and reduced masterpoints." },
+      { "name": "Starter", "detail": "15–18 boards in a relaxed, supervised game for newer players. Bidding aids are welcome." }
+    ]
+  },
+  "hosted": {
+    "eyebrow": "No partner needed",
+    "heading": "Hosted sessions",
+    "text": "A host is provided at these sessions. Singles are paired up, and the host plays if needed."
+  },
+  "beforeArrival": {
+    "heading": "Before you arrive",
+    "text": "Please be seated 15 minutes before play. Sessions include a 15-minute refreshment break. Fees are $4 for members and $6 for visitors."
+  }
+}
